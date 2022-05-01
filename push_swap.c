@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 16:39:40 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/01 19:22:45 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/05/01 23:11:48 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_atoi_tuning(const char *nptr)
 		res = res * 10 + (nptr[i] - 48);
 		i++;
 	}
-	res * signe;
+	res = res * signe;
 	if (res > INT_MAX || res < INT_MIN)
 		ft_err();
 	return (res);
