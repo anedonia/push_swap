@@ -31,6 +31,7 @@ void	check_argv(argv)
 		{
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
 				ft_err();
+			j++;
 		}
 		i++;
 	}
@@ -59,9 +60,10 @@ int	ft_atoi_tuning(const char *nptr)
 		res = res * 10 + (nptr[i] - 48);
 		i++;
 	}
+	res * signe;
 	if (res > INT_MAX || res < INT_MIN)
 		ft_err();
-	return (res * signe);
+	return (res);
 }
 
 t_list *build_list()
