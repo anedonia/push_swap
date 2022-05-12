@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/01 18:14:34 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/12 17:01:45 by ldevy            ###   ########.fr       */
+/*   Created: 2022/05/12 16:53:47 by ldevy             #+#    #+#             */
+/*   Updated: 2022/05/12 16:57:41 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "libft-main/libft.h"
-# include <limits.h> //macro pour int max
-# include <unistd.h> //macro pour stderr
+#include "../../push_swap.h"
 
-typedef	struct s_tab
+void	sort_radix(t_stack **a, t_stack **b, int size)
 {
-	
-} t_tab;
-typedef struct s_stack
-{
-	int		data;
-	int		index;
-	s_stack	*next;
-	s_stack	*prev;
-}	t_stack;
+	int	max_bit;
+	int	max_size;
+	int	i;
+	int	j;
 
-#endif
+	max_bit = 0;
+	max_size = size -1;
+	i = 0;
+	while ((max_size >> max_bit) != 0)
+		max_bit++;
+	while (i < max_bit)
+	{
+		j = 0;
+		while ((j < size))
+		{
+			if ((((*a)->index >> i) & 1) == 1)
+				ra(a);
+			else
+				pb(a, b);
+			j++;
+		}
+		while (*b)
+			pa(b, a);
+		i++;
+	}
+}
