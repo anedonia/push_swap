@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 18:19:28 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/25 16:22:13 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/05/27 10:34:22by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,20 @@ void    print_list(t_stack **head)
 {
 	t_stack *current = *head;
 	t_stack	*previous;
+	if (!*head)
+	{
+		printf("Empty list \n");
+		return ;
+	}
 	while (current != NULL)
 	{
 		printf("element number    : %d \n", current->data);
-		//printf("prev element addr : %p \n", current->prev);
-		previous = current->prev;
+		// previous = current->prev;
 		current = current->next;
-		if (previous != NULL)
-			printf("previous element number : %d \n", previous->data);
-		else 
-			printf("no previous element \n");
+		// if (previous != NULL)
+		// 	printf("previous element number : %d \n", previous->data);
+		// else 
+		// 	printf("no previous element \n");
 	}
 	
 }
@@ -98,12 +102,30 @@ int	fill_list(int *tab, t_stack **head)
 
 int main(void)
 {
-	t_stack *head;
+	t_stack *head_a;
+	t_stack	*head_b;
 	int tab[10] = {1,2,3,4,5,6,7,8,9,0};
 	
-	head = NULL;
-	fill_list(tab, &head);
-	print_list(&head);
+	head_a = NULL;
+	head_b = NULL;
+	fill_list(tab, &head_a); // tester pa pb en fait une des deux
+		print_list(&head_a);
+		print_list(&head_b);	
+	pa(&head_a, &head_b);
+		printf("\nstack a\n");
+		print_list(&head_a);
+		printf("\nstack b\n");
+		print_list(&head_b);
+	pa(&head_a, &head_b);
+		printf("\nstack a\n");
+		print_list(&head_a);
+		printf("\nstack b\n");
+		print_list(&head_b);
+	pa(&head_a, &head_b);
+		printf("\nstack a\n");
+		print_list(&head_a);
+		printf("\nstack b\n");
+		print_list(&head_b);
 	return (0);
 }
 //on a pas besoin de malloc une liste de taille n etc on initialise les elements quand on les a
