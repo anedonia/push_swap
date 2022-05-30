@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 19:53:51 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/29 19:54:21 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/05/30 14:10:30 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,14 @@ int	rrr(t_stack **head_a, t_stack **head_b)
 	if (a > 0)
 		ft_putstr_fd("rrr\n", 1);
 	return (0);
+}
+
+t_stack	*last_node(t_stack **head)
+{
+	t_stack	*last;
+
+	last = *head;
+	while (last->next)
+		last = last->next;
+	return (last);
 }

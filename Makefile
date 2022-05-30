@@ -6,51 +6,50 @@
 #    By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 14:23:22 by ldevy             #+#    #+#              #
-#    Updated: 2022/05/01 18:25:22 by ldevy            ###   ########.fr        #
+#    Updated: 2022/05/30 15:55:43by ldevy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = push_swap.c
 
-OBJS	= ${SRC:.c=.o}
 
-NAME 	= push_swap
+SRCS	= $(addprefix src/, push_swap.c \
+						opertion/push.c opertion/reverse.c opertion/rotate.c opertion/swap.c \
+						sorting/radix.c \
+						utils/list_init.c utils/memory.c utils/parsing.c)
 
-RM		= rm -f
+OBJDIR = objs
 
-CC		= cc
+OBJS = $(addprefix ${OBJDIR}/, ${SRCS:.c=.o})
 
-LIBS 	= libft-main/libft.h
+NAME = push_swap
 
-CFLAGS	= -Wall -Wextra -Werror -g3
+LIBFT = libft-main/libft.a
 
-bonus: all
+CC = gcc
 
-all:		${NAME}
+RM = rm -f
 
-.c.o:
-			${CC} ${CFLAGS} -I/usr/include -c $< -o ${<:.c=.o}
+CFLAGS = -Wall -Wextra -Werror
 
-# pour mac
-# %.o: %.c
-# 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+all:	${NAME}
 
 ${NAME}:	${OBJS}
-			make -C libft-main make
-			${CC} ${CFLAGS} ${OBJS} ${LIBS} -o ${NAME}
+			
+			@make bonus -C libft-main
+			${CC} ${OBJS} ${CFLAGS} -o $@ ${LIBFT}
 
-#pour mac
-# $(NAME): $(OBJS)
-# 	$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+${OBJDIR}/%.o:%.c
+	@mkdir -p ${@D}
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-			make -C libft-main clean
-			${RM} ${OBJS}
+		@make -C libft-main clean
+		rm -rf ${OBJDIR}
 
 fclean:		clean
-			make -C libft-main fclean
 			${RM} ${NAME}
+			${RM} ${LIBFT}
 
-re:			fclean all
+re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
