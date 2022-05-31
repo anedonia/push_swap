@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:16:38 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/31 20:43:18 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/01 00:44:29 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,21 @@ t_stack	*create_node(int data, int index)
 	return (new);
 }
 
-// void    print_list(t_stack **head) //fnction a enlever ap
-// {
-// 	t_stack *current = *head;
-// 	if (!*head)
-// 	{
-// 		printf("Empty list \n"); 
-// 		return ;
-// 	}
-// 	while (current != NULL)
-// 	{
-//printf("element number    : %d el index : 
-//%d\n", current->data, current->index);
-// 		current = current->next;
-// 	}
-// 	printf("\n");
-// }
+void    print_list(t_stack **head) //fnction a enlever ap
+{
+	t_stack *current = *head;
+	if (!*head)
+	{
+		printf("Empty list \n"); 
+		return ;
+	}
+	while (current != NULL)
+	{
+printf("element number    : %d el index : %d\n", current->data, current->index);
+		current = current->next;
+	}
+	printf("\n");
+}
 
 int	ft_add_back(int data, t_stack **head)
 {

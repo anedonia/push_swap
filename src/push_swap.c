@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 16:39:40 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/31 20:25:54 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/01 01:28:04 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_err(void)
 {
-	ft_putstr_fd("Error", STDERR_FILENO);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(1);
 }
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	parsing(&argv[1], argc - 1, &head_a);
 	sort_index(&head_a);
 	sort_radix(&head_a, &head_b, argc - 1);
-	print_list(&head_a);
+	//print_list(&head_a);
 	ft_free(&head_a);
 }
 

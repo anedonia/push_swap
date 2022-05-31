@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/31 20:43:50 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/01 01:26:15 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,10 @@ int	order(int *tab, int argc)
 		i++;
 	}
 	if (i != 0)
-		return (1);
+	{
+		free(tab);
+		exit(1);
+	}
 	return (0);
 }
 
@@ -130,4 +133,3 @@ void	parsing(char **argv, int argc, t_stack **head)
 	fill_list(tab, head, argc);
 	free(tab);
 }
-//si cest deja dans lordre pas d'erreur
