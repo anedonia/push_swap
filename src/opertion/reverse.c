@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 19:53:51 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/30 14:10:30 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/05/31 20:37:39 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	reverse_rotate(t_stack **head)
 {
 	t_stack	*temp;
-	int	temp_data;
-	int	temp_index;
+	int		temp_data;
+	int		temp_index;
 
 	if (!*head || !(*head)->next)
 		return (1);

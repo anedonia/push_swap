@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:08:26 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/30 14:09:08 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/05/31 20:26:01 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free(t_stack **head)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!head)
 		return ;
@@ -24,4 +24,5 @@ void	ft_free(t_stack **head)
 		*head = (*head)->next;
 		free(temp);
 	}
+	free(*head);
 }

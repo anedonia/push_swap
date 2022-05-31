@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 19:45:30 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/29 19:46:49 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/05/31 20:37:20 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	rotate(t_stack **head)
 {
 	t_stack	*temp;
-	int	temp_data;
-	int	temp_index;
+	int		temp_data;
+	int		temp_index;
 
 	if (!*head || !(*head)->next)
 		return (1);
@@ -32,31 +32,31 @@ int	rotate(t_stack **head)
 		temp = temp->next;
 	}
 	ft_putstr_fd("ra\n", 1);
-	return(0);
+	return (0);
 }
 
 int	ra(t_stack **head)
 {
-	if(!rotate(head))
+	if (!rotate(head))
 		ft_putstr_fd("ra\n", 1);
 	return (0);
 }
 
 int	rb(t_stack **head)
 {
-	if(!rotate(head))
+	if (!rotate(head))
 		ft_putstr_fd("rb\n", 1);
 	return (0);
 }
 
 int	rr(t_stack **head_a, t_stack **head_b)
 {
-	int a;
+	int	a;
 
 	a = 0;
-	if(!rotate(head_a))
+	if (!rotate(head_a))
 		a++;
-	if(!rotate(head_b))
+	if (!rotate(head_b))
 		a++;
 	if (a > 0)
 		ft_putstr_fd("rr\n", 1);

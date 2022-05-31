@@ -14,7 +14,7 @@
 
 SRCS	= $(addprefix src/, push_swap.c \
 						opertion/push.c opertion/reverse.c opertion/rotate.c opertion/swap.c \
-						sorting/radix.c \
+						sorting/radix.c sorting/indexing.c\
 						utils/list_init.c utils/memory.c utils/parsing.c)
 
 OBJDIR = objs
@@ -29,7 +29,7 @@ CC = gcc
 
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 all:	${NAME}
 

@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:16:38 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/30 16:40:15 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/05/31 20:43:18 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,44 +23,29 @@ t_stack	*create_node(int data, int index)
 	new->index = index;
 	new->next = NULL;
 	new->prev = NULL;
-	return(new);
+	return (new);
 }
 
-void    print_list(t_stack **head) //fnction a enlever ap
-{
-	t_stack *current = *head;
-	if (!*head)
-	{
-		printf("Empty list \n"); 
-		return ;
-	}
-	while (current != NULL)
-	{
-		printf("element number    : %d \n", current->data);
-		current = current->next;
-	}
-	
-}
-
-int	ft_add_front(int data, t_stack **head) // a enlever
-{
-	t_stack *new;
-	new = create_node(data, 0);
-	if (new == NULL)
-		return (1);
-	if (!*head)
-		*head = new;
-	else 
-	{
-		new->next = *head;
-		*head = new;
-	}
-	return (0);
-}
+// void    print_list(t_stack **head) //fnction a enlever ap
+// {
+// 	t_stack *current = *head;
+// 	if (!*head)
+// 	{
+// 		printf("Empty list \n"); 
+// 		return ;
+// 	}
+// 	while (current != NULL)
+// 	{
+//printf("element number    : %d el index : 
+//%d\n", current->data, current->index);
+// 		current = current->next;
+// 	}
+// 	printf("\n");
+// }
 
 int	ft_add_back(int data, t_stack **head)
 {
-	t_stack *new;
+	t_stack	*new;
 	t_stack	*last;
 
 	new = create_node(data, 0);
@@ -89,5 +74,5 @@ int	fill_list(int *tab, t_stack **head, int argc)
 		ft_add_back(tab[i], head);
 		i++;
 	}
-	return (0);	
+	return (0);
 }

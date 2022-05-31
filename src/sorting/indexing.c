@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/01 16:39:40 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/31 20:25:54 by ldevy            ###   ########.fr       */
+/*   Created: 2022/05/31 19:21:02 by ldevy             #+#    #+#             */
+/*   Updated: 2022/05/31 20:28:28 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-void	ft_err(void)
+void	sort_index(t_stack **head)
 {
-	ft_putstr_fd("Error", STDERR_FILENO);
-	exit(1);
+	t_stack	*temp;
+
+	temp = *head;
+	while (temp)
+	{
+		temp->index = find_index(head, temp->data);
+		temp = temp->next;
+	}
 }
 
-int	main(int argc, char **argv)
+int	find_index(t_stack **head, int nb)
 {
-	t_stack	*head_a;
-	t_stack	*head_b;
+	t_stack	*temp;
+	int		i;
 
-	head_a = NULL;
-	head_b = NULL;
-	if (argc == 1)
-		exit (1);
-	parsing(&argv[1], argc - 1, &head_a);
-	sort_index(&head_a);
-	sort_radix(&head_a, &head_b, argc - 1);
-	print_list(&head_a);
-	ft_free(&head_a);
+	temp = *head;
+	i = 0;
+	while (temp)
+	{
+		if (temp->data < nb)
+			i++;
+		temp = temp->next;
+	}
+	return (i);
 }
-
-//tester les operations 
-//faire l'indexage simple

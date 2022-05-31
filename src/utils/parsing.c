@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/30 18:26:11 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/05/31 20:43:50 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_argv(char **argv)
 				ft_err();
 			if (argv[i][j] == '-' && j != 0)
 				ft_err();
-			if (argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j+1]))
+			if (argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j + 1]))
 				ft_err();
 			j++;
 		}
@@ -63,13 +63,14 @@ int	ft_atoi_tuning(const char *nptr)
 		ft_err();
 	return (res);
 }
+
 int	law_n_order(int *tab, int argc)
 {
-	int i;
+	int	i;
 	int	j;
-	int order_;
+	int	order_;
 	int	law;
-	
+
 	i = 0;
 	law = 0;
 	while (argc > i)
@@ -84,36 +85,35 @@ int	law_n_order(int *tab, int argc)
 		i++;
 	}
 	order_ = order(tab, argc);
-	//printf("law : %d order : %d\n", law, order_);
 	if (law || order_)
 		return (1);
-	return(0);
+	return (0);
 }
 
 int	order(int *tab, int argc)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < argc - 1)
 	{
-		if (tab[i] > tab[i+1])
+		if (tab[i] > tab[i + 1])
 		{
 			i = 0;
-			break;
+			break ;
 		}
 		i++;
 	}
 	if (i != 0)
 		return (1);
-	return(0);
+	return (0);
 }
 
 void	parsing(char **argv, int argc, t_stack **head)
 {
 	int	i;
 	int	*tab;
-	
+
 	check_argv(argv);
 	tab = malloc(sizeof(*tab) * argc);
 	i = 0;
@@ -125,9 +125,9 @@ void	parsing(char **argv, int argc, t_stack **head)
 	if (law_n_order(tab, argc))
 	{
 		free(tab);
-		//printf("law and order");
 		ft_err();
 	}
 	fill_list(tab, head, argc);
+	free(tab);
 }
 //si cest deja dans lordre pas d'erreur
