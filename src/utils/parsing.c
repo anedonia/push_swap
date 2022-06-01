@@ -6,13 +6,13 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/01 01:26:15 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/01 11:55:30 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	check_argv(char **argv)
+int	check_argv(char **argv)
 {
 	int	i;
 	int	j;
@@ -23,12 +23,10 @@ void	check_argv(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
-				ft_err();
-			if (argv[i][j] == '-' && j != 0)
-				ft_err();
-			if (argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j + 1]))
-				ft_err();
+			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-') || 
+				argv[i][j] == '-' && j != 0 || 
+					argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j + 1]))
+				return (NULL);
 			j++;
 		}
 		i++;
@@ -60,7 +58,7 @@ int	ft_atoi_tuning(const char *nptr)
 	}
 	res = res * signe;
 	if (res > INT_MAX || res < INT_MIN)
-		ft_err();
+		return (NULL);
 	return (res);
 }
 

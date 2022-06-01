@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 18:14:34 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/31 20:36:30 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/01 11:55:51 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	print_list(t_stack **head);
 int		ft_add_front(int data, t_stack **head);
 int		ft_add_back(int data, t_stack **head);
 int		fill_list(int *tab, t_stack **head, int argc);
-void	check_argv(char **argv);
+int		check_argv(char **argv);
 int		ft_atoi_tuning(const char *nptr);
 int		law_n_order(int *tab, int argc);
 int		order(int *tab, int argc);

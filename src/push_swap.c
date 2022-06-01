@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 16:39:40 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/01 01:28:04 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/01 11:45:50 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	main(int argc, char **argv)
 	head_b = NULL;
 	if (argc == 1)
 		exit (1);
+	if (argc == 2 && argv[1] && ft_strchr(argv[1], ' '))	
+		//exit(8);
 	parsing(&argv[1], argc - 1, &head_a);
 	sort_index(&head_a);
 	sort_radix(&head_a, &head_b, argc - 1);
