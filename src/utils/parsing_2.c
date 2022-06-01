@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/01 18:17:03 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/01 18:27:55 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	check_argv(char **argv)
+int	spe_check_argv(char **argv)
 {
 	int	i;
 	int	j;
@@ -26,17 +26,17 @@ int	check_argv(char **argv)
 			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-') ||
 				argv[i][j] == '-' && j != 0 ||
 					argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j + 1]))
-				ft_err();
+				ft_err_spe(argv);
 			j++;
 		}
 		i++;
 	}
 	i = 0;
 	while (argv[i])
-		ft_atoi_tuning(argv[i++]);
+		ft_atoi_tuning(argv[i++], argv);
 }
 
-int	ft_atoi_tuning(const char *nptr)
+int	spe_ft_atoi_tuning(const char *nptr, char **argv)
 {
 	long	res;
 	int		i;
@@ -58,11 +58,11 @@ int	ft_atoi_tuning(const char *nptr)
 	}
 	res = res * signe;
 	if (res > INT_MAX || res < INT_MIN)
-		ft_err();
+		ft_err_spe(argv);
 	return (res);
 }
 
-int	law_n_order(int *tab, int argc)
+int	spe_law_n_order(int *tab, int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -82,13 +82,13 @@ int	law_n_order(int *tab, int argc)
 		}
 		i++;
 	}
-	order_ = order(tab, argc);
+	order_ = spe_order(tab, argc, argv);
 	if (law || order_)
 		return (1);
 	return (0);
 }
 
-int	order(int *tab, int argc)
+int	spe_order(int *tab, int argc, char **ptr)
 {
 	int	i;
 
@@ -104,19 +104,22 @@ int	order(int *tab, int argc)
 	}
 	if (i != 0)
 	{
+		ft_free_char(ptr);
 		free(tab);
 		exit(1);
 	}
 	return (0);
 }
 
-void	parsing(char **argv, int argc, t_stack **head)
+void	spe_parsing(char *argv, int argc, t_stack **head)
 {
 	int	i;
 	int	*tab;
 
-	check_argv(argv);
+	spe_check_argv(argv);
 	tab = malloc(sizeof(*tab) * argc);
+	if (!tab)
+		re
 	i = 0;
 	while (argv[i])
 	{
@@ -129,5 +132,6 @@ void	parsing(char **argv, int argc, t_stack **head)
 		ft_err();
 	}
 	fill_list(tab, head, argc);
+	ft_free_char(argv);
 	free(tab);
 }
