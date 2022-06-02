@@ -6,13 +6,13 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/01 18:27:55 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/02 15:54:05 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	spe_check_argv(char **argv)
+void	spe_check_argv(char **argv)
 {
 	int	i;
 	int	j;
@@ -23,17 +23,17 @@ int	spe_check_argv(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-') ||
-				argv[i][j] == '-' && j != 0 ||
-					argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j + 1]))
-				ft_err_spe(argv);
+			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
+			|| (argv[i][j] == '-' && j != 0)
+			|| (argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j + 1])))
+				free_tuning(NULL, argv, 1);
 			j++;
 		}
 		i++;
 	}
 	i = 0;
 	while (argv[i])
-		ft_atoi_tuning(argv[i++], argv);
+		spe_ft_atoi_tuning(argv[i++], argv);
 }
 
 int	spe_ft_atoi_tuning(const char *nptr, char **argv)
@@ -58,7 +58,7 @@ int	spe_ft_atoi_tuning(const char *nptr, char **argv)
 	}
 	res = res * signe;
 	if (res > INT_MAX || res < INT_MIN)
-		ft_err_spe(argv);
+		free_tuning(NULL, argv, 1);
 	return (res);
 }
 
@@ -111,27 +111,28 @@ int	spe_order(int *tab, int argc, char **ptr)
 	return (0);
 }
 
-void	spe_parsing(char *argv, int argc, t_stack **head)
+int	spe_parsing(char *argv, t_stack **head)
 {
-	int	i;
-	int	*tab;
+	int		i;
+	int		*tab;
+	char	**str;
+	int		len;
 
-	spe_check_argv(argv);
-	tab = malloc(sizeof(*tab) * argc);
+	str = ft_split(argv, ' ');
+	len = arr_len(str);
+	spe_check_argv(str);
+	tab = malloc(sizeof(*tab) * len);
 	if (!tab)
-		re
+		free_tuning(tab, str, 1);
 	i = 0;
-	while (argv[i])
+	while (str[i])
 	{
-		tab[i] = ft_atoi_tuning(argv[i]);
+		tab[i] = ft_atoi_tuning(str[i]);
 		i++;
 	}
-	if (law_n_order(tab, argc))
-	{
-		free(tab);
-		ft_err();
-	}
-	fill_list(tab, head, argc);
-	ft_free_char(argv);
-	free(tab);
+	if (spe_law_n_order(tab, len, str))
+		free_tuning(tab, str, 1);
+	fill_list(tab, head, len);
+	free_tuning(tab, str, 0);
+	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 16:39:40 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/01 18:23:40 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/02 15:55:07 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,6 @@ void	ft_err(void)
 {
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(1);
-}
-
-void	ft_free_char(char **ptr)
-{
-	int	i;
-
-	i = 0;
-	while (ptr[i])
-	{
-		free(ptr[i]);
-		i++;
-	}
-	free(ptr);
 }
 
 void	ft_err_spe(char **ptr)
@@ -48,13 +35,11 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit (1);
 	if (argc == 2 && argv[1] && ft_strchr(argv[1], ' '))
-		spe_parsing(argv[1]);
-	parsing(&argv[1], argc - 1, &head_a);
+		argc = spe_parsing(argv[1], &head_a) + 1;
+	else
+		parsing(&argv[1], argc - 1, &head_a);
 	sort_index(&head_a);
 	sort_radix(&head_a, &head_b, argc - 1);
-	//print_list(&head_a);
+	print_list(&head_a);
 	ft_free(&head_a);
 }
-
-//tester les operations 
-//faire l'indexage simple

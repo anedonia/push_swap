@@ -6,13 +6,13 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/01 18:17:03 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/02 15:55:37 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	check_argv(char **argv)
+void	check_argv(char **argv)
 {
 	int	i;
 	int	j;
@@ -23,9 +23,9 @@ int	check_argv(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-') ||
-				argv[i][j] == '-' && j != 0 ||
-					argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j + 1]))
+			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
+			|| (argv[i][j] == '-' && j != 0)
+			|| (argv[i][j] == '-' && j == 0 && !ft_isdigit(argv[i][j + 1])))
 				ft_err();
 			j++;
 		}
