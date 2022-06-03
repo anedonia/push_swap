@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 16:39:40 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/02 15:55:07 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/03 11:34:17 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ int	main(int argc, char **argv)
 	else
 		parsing(&argv[1], argc - 1, &head_a);
 	sort_index(&head_a);
+	//if (argc )
 	sort_radix(&head_a, &head_b, argc - 1);
-	print_list(&head_a);
+	//print_list(&head_a);
 	ft_free(&head_a);
 }
+//il faut en dessous de 1100 pour 100 params 
+//et en dessous de 7k pour 500 et t'auras la note min
