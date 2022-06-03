@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 19:45:30 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/31 20:37:20 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/03 15:24:23 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	rotate(t_stack **head)
 		temp->next->index = temp_index;
 		temp = temp->next;
 	}
-	ft_putstr_fd("ra\n", 1);
 	return (0);
 }
 

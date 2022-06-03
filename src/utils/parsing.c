@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/02 15:55:37 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/03 14:59:06 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ void	check_argv(char **argv)
 	}
 	i = 0;
 	while (argv[i])
+	{
+		if (!valid_num(argv[i]))
+			ft_err();
 		ft_atoi_tuning(argv[i++]);
+	}
 }
 
 int	ft_atoi_tuning(const char *nptr)

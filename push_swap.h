@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 18:14:34 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/02 15:54:25 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/03 15:00:38 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ int		spe_law_n_order(int *tab, int argc, char **argv);
 int		spe_order(int *tab, int argc, char **ptr);
 void	free_tuning(int *tab, char **str, int all);
 int		spe_parsing(char *argv, t_stack **head);
+int		valid_num(char *str);
 #endif

@@ -6,11 +6,22 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 11:53:09 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/02 15:56:49 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/03 14:57:58 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+int	valid_num(char *str)
+{
+	int	len;
+
+	len = ft_strlen(str);
+	if ((str[0] == '-' && len <= 11) || (len <= 10))
+		return (1);
+	return (0);
+}
+
 
 int	arr_len(char **str)
 {
