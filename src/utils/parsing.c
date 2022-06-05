@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/03 14:59:06 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/03 15:38:34 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,10 @@ int	ft_atoi_tuning(const char *nptr)
 	return (res);
 }
 
-int	law_n_order(int *tab, int argc)
+void	law_n_order(int *tab, int argc)
 {
 	int	i;
 	int	j;
-	int	order_;
 	int	law;
 
 	i = 0;
@@ -86,10 +85,12 @@ int	law_n_order(int *tab, int argc)
 		}
 		i++;
 	}
-	order_ = order(tab, argc);
-	if (law || order_)
-		return (1);
-	return (0);
+	if (law)
+	{
+		free(tab);
+		ft_err();
+	}
+	order(tab, argc);
 }
 
 int	order(int *tab, int argc)
@@ -127,11 +128,7 @@ void	parsing(char **argv, int argc, t_stack **head)
 		tab[i] = ft_atoi_tuning(argv[i]);
 		i++;
 	}
-	if (law_n_order(tab, argc))
-	{
-		free(tab);
-		ft_err();
-	}
+	law_n_order(tab, argc);
 	fill_list(tab, head, argc);
 	free(tab);
 }

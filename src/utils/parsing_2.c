@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/03 15:02:29 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/03 15:43:55 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,10 @@ int	spe_ft_atoi_tuning(const char *nptr, char **argv)
 	return (res);
 }
 
-int	spe_law_n_order(int *tab, int argc, char **argv)
+void	spe_law_n_order(int *tab, int argc, char **argv)
 {
 	int	i;
 	int	j;
-	int	order_;
 	int	law;
 
 	i = 0;
@@ -86,10 +85,9 @@ int	spe_law_n_order(int *tab, int argc, char **argv)
 		}
 		i++;
 	}
-	order_ = spe_order(tab, argc, argv);
-	if (law || order_)
-		return (1);
-	return (0);
+	if (law)
+		free_tuning(tab, argv, 1);
+	spe_order(tab, argc, argv);
 }
 
 int	spe_order(int *tab, int argc, char **ptr)
@@ -107,11 +105,7 @@ int	spe_order(int *tab, int argc, char **ptr)
 		i++;
 	}
 	if (i != 0)
-	{
-		ft_free_char(ptr);
-		free(tab);
-		exit(1);
-	}
+		free_tuning(tab, ptr, 0);
 	return (0);
 }
 
@@ -134,8 +128,7 @@ int	spe_parsing(char *argv, t_stack **head)
 		tab[i] = ft_atoi_tuning(str[i]);
 		i++;
 	}
-	if (spe_law_n_order(tab, len, str))
-		free_tuning(tab, str, 1);
+	spe_law_n_order(tab, len, str);
 	fill_list(tab, head, len);
 	free_tuning(tab, str, 0);
 	return (len);

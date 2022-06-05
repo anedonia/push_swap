@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:17:42 by ldevy             #+#    #+#             */
-/*   Updated: 2022/05/31 20:28:56 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/05 19:41:36 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	push(t_stack **source, t_stack **target)
 		(*source)->prev = NULL;
 		*target = (*target)->prev;
 	}
+	(*source)->prev = NULL;
 	return (0);
 }
 

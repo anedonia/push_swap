@@ -14,7 +14,7 @@
 
 SRCS	= $(addprefix src/, push_swap.c \
 						opertion/push.c opertion/reverse.c opertion/rotate.c opertion/swap.c \
-						sorting/radix.c sorting/indexing.c\
+						sorting/radix.c sorting/indexing.c sorting/small_sort.c\
 						utils/list_init.c utils/memory.c \
 						utils/parsing.c utils/parsing_2.c utils/utlis.c)
 

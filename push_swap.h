@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 18:14:34 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/03 15:00:38 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/05 19:49:39 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		ft_add_back(int data, t_stack **head);
 int		fill_list(int *tab, t_stack **head, int argc);
 void	check_argv(char **argv);
 int		ft_atoi_tuning(const char *nptr);
-int		law_n_order(int *tab, int argc);
+void	law_n_order(int *tab, int argc);
 int		order(int *tab, int argc);
 void	parsing(char **argv, int argc, t_stack **head);
 void	ft_err(void);
@@ -62,9 +62,12 @@ void	sort_radix(t_stack **a, t_stack **b, int size);
 int		arr_len(char **str);
 void	spe_check_argv(char **argv);
 int		spe_ft_atoi_tuning(const char *nptr, char **argv);
-int		spe_law_n_order(int *tab, int argc, char **argv);
+void	spe_law_n_order(int *tab, int argc, char **argv);
 int		spe_order(int *tab, int argc, char **ptr);
 void	free_tuning(int *tab, char **str, int all);
 int		spe_parsing(char *argv, t_stack **head);
 int		valid_num(char *str);
+void	sort_3(t_stack **a, t_stack **b, int size);
+int		not_sorted(t_stack **a, t_stack **b);
+void	sort_5(t_stack **a, t_stack **b, int len);
 #endif
