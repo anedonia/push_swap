@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 18:14:34 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/07 16:08:23 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/07 18:00:09 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 # include "libft-main/libft.h"
 # include <limits.h> //macro pour int max
 # include <unistd.h> //macro pour stderr
-# include <stdio.h> //a enlever
-
 typedef struct s_stack
 {
 	struct s_stack	*next;
