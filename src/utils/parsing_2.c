@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:02 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/03 15:43:55 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/07 13:38:32 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,10 @@ int	spe_order(int *tab, int argc, char **ptr)
 		i++;
 	}
 	if (i != 0)
+	{
 		free_tuning(tab, ptr, 0);
+		exit(1);
+	}
 	return (0);
 }
 

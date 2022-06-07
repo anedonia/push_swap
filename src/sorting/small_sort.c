@@ -28,6 +28,19 @@ int	not_sorted(t_stack **a, t_stack **b)
 	return (0);
 }
 
+int	not_sorted_a(t_stack **a)
+{
+	t_stack	*temp;
+
+	temp = *a;
+	while (temp->next)
+	{
+		if (temp->index > temp->next->index)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
 
 void	sort_3(t_stack **a, t_stack **b, int size)
 {
@@ -55,12 +68,45 @@ int	at_end(int index, t_stack **head)
 {
 	t_stack	*temp;
 
-	temp = *head;
-	while (temp->next)
-		temp = temp->next;
+	temp = last_node(head);
 	if (temp->index == index)
 		return (1);
 	return (0);
+}
+
+int	is_in_end(t_stack **lst, int index)
+{
+	int	i;
+	int	size;
+
+	i = 0;
+	size = ft_lst_size(*lst);
+	while (i <= size / 2)
+	{
+		if ((*lst)->index == index)
+			return (0);
+		lst = &(*lst)->next;
+		i++;
+	}
+	return (1);
+}
+
+int	ft_lst_size(t_stack *lst)
+{
+	int		i;
+	t_stack	*tmp;
+
+	tmp = lst;
+	i = 0;
+	if (tmp)
+	{
+		while (tmp)
+		{
+			tmp = tmp->next;
+			i++;
+		}
+	}
+	return (i);
 }
 
 void	sort_5(t_stack **a, t_stack **b, int len)
@@ -68,7 +114,8 @@ void	sort_5(t_stack **a, t_stack **b, int len)
 	int	i;
 
 	i = 0;
-	while (i != len)
+	(void)len;
+	while (not_sorted_a(a))
 	{
 		if ((*a)->index == i)
 		{
