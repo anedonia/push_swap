@@ -69,44 +69,9 @@ int	at_end(int index, t_stack **head)
 	t_stack	*temp;
 
 	temp = last_node(head);
-	if (temp->index == index)
+	if (temp->index == index || (temp->prev && temp->prev->index == index))
 		return (1);
 	return (0);
-}
-
-int	is_in_end(t_stack **lst, int index)
-{
-	int	i;
-	int	size;
-
-	i = 0;
-	size = ft_lst_size(*lst);
-	while (i <= size / 2)
-	{
-		if ((*lst)->index == index)
-			return (0);
-		lst = &(*lst)->next;
-		i++;
-	}
-	return (1);
-}
-
-int	ft_lst_size(t_stack *lst)
-{
-	int		i;
-	t_stack	*tmp;
-
-	tmp = lst;
-	i = 0;
-	if (tmp)
-	{
-		while (tmp)
-		{
-			tmp = tmp->next;
-			i++;
-		}
-	}
-	return (i);
 }
 
 void	sort_5(t_stack **a, t_stack **b, int len)

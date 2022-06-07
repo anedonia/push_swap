@@ -6,7 +6,7 @@
 /*   By: ldevy <ldevy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 18:14:34 by ldevy             #+#    #+#             */
-/*   Updated: 2022/06/07 15:13:07 by ldevy            ###   ########.fr       */
+/*   Updated: 2022/06/07 16:08:23 by ldevy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,4 @@ void	sort_3(t_stack **a, t_stack **b, int size);
 int		not_sorted(t_stack **a, t_stack **b);
 void	sort_5(t_stack **a, t_stack **b, int len);
 int		not_sorted_a(t_stack **a);
-
-int	stack_len(t_stack *lst);
-int	is_a_sorted(t_stack *lst);
-int	is_in_end(t_stack **lst, int index);
-int	ft_lst_size(t_stack *lst);
 #endif
